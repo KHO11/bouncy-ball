@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+    <title>bouncing ball horizontally</title>
+</head>
+<body>
+    <canvas id="myCanvas" style="border:1px solid black">
+    </canvas>
+    
+    <script>
+        var c=document.getElementById("myCanvas");
+        var ctx=c.getContext("2d");
+        c.width=window.innerWidth;
+        c.height=window.innerHeight;
+
+        var x=200;
+        var y=200
+        var dx=4; //change in x
+        var dy=4; //change in y
+        var radius=30;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.beginPath();
+            ctx.arc(x,y,radius,0,Math.PI * 2);
+            ctx.strokeStyle="blue";
+            ctx.stroke();
+
+            if (x + radius > innerWidth || x - radius < 0) {
+                dx=-dx;
+            }
+
+            if (y + radius > innerHeight || y - radius < 0) {
+                dy=-dy;
+            }
+
+            x +=dx;
+
+            y +=dy;
+        }
+
+        animate();
+
+        var x2=200;
+        var y2=500
+        var dx2=6; //change in x
+        var dy2=6; //change in y
+        var radius2=60;
+
+        function animation2() {
+            requestAnimationFrame(animation2);
+            ctx.beginPath();
+            ctx.arc(x2,y2,radius2,0,Math.PI * 2);
+            ctx.strokeStyle="gold";
+            ctx.stroke();
+
+            if (x2 + radius2 > innerWidth || x2 - radius2 < 0) {
+                dx2=-dx2;
+            }
+
+            if (y2 + radius2 > innerHeight || y2 - radius2 < 0) {
+                dy2=-dy2;
+            }
+
+            x2 +=dx2;
+
+            y2 +=dy2;
+        }
+
+        animation2();
+        
+    </script>
+</html>

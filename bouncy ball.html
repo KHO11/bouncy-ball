@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+    <title>
+        Bouncy Ball
+    </title>
+    <script src="jquery-3.4.0.min.js"></script>
+
+    
+</head>
+<body>
+
+        <canvas id="myCanvas" width="200" height="100" >
+        Your browser does not support the HTML5 canvas tag.</canvas>
+                
+        <script>
+        var canvas = document.getElementById("myCanvas");
+        var c = canvas.getContext("2d");
+        canvas.width=window.innerWidth;
+        canvas.height=window.innerHeight;
+
+       
+        
+
+        var x=200;
+        var dx=4
+        function animate() {
+            requestAnimationFrame(animate);
+            c.beginPath();
+            c.arc(x,200,30,0,2*Math.PI,false);
+            c.stroke();
+
+
+            if (x>innerWidth) {
+                dx= -dx
+            }
+
+            x +=dx
+        }
+
+        animate();
+        </script> 
+                
+    
+</body>
+
+    
+        
+    
+</html>
